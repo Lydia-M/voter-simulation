@@ -1,9 +1,13 @@
-require './people'
+require './people.rb'
 
-describe People do
-    it "is created with a first name and last name"
-    person = People.new("Jane", "Doe")
-    expect(person).to be_a(People)
-end
-
+describe Person do
+    it "is created with a name" do
+        people.new = Person.new("Lydia Mansfield")
+        expect(people).to be_a(Person)
+    end
+    
+    it "can report its name" do
+        people = Person.new("Lydia Mansfield")
+        expect(people.name).to eq("Lydia Mansfield")
+    end   
 end
