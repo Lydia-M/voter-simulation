@@ -1,11 +1,11 @@
 require './people.rb'
 
 class Politician < Person
-    attr_reader :pol_party
+    attr_reader :party_aff
     
-    def initialize(name, pol_party)
+    def initialize(name, party_aff)
         super(name)
-        @pol_party = pol_party
+        @party_aff = party_aff
     end
     
 end

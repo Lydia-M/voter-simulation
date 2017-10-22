@@ -14,7 +14,7 @@ describe Politician do
     
     it "can report its affiliation" do
         politician = Politician.new("Kamala Harris", "Democrat")
-        expect(politician.pol_party).to eq("Democrat")
+        expect(politician.party_aff).to eq("Democrat")
     end
     
     
