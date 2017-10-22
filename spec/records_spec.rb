@@ -34,8 +34,44 @@ describe Records do
         expect(politician_list).to eq("politician, Gwen Graham, Democrat\n")
     end
 
-    it "can update a voter"
-#     it "can update a politician"
+    it "can find a voter" do
+        records = Records.new()
+        records.create_voter("Lydia Mansfield", "Liberal")
+        person = records.find_person_by_name("Lydia Mansfield")
+        expect(person.name).to eq("Lydia Mansfield")
+    end
+    
+    it "can find a politician" do
+        records = Records.new()
+        records.create_politician("Kamala Harris", "Democrat")
+        person = records.find_person_by_name("Kamala Harris")
+        expect(person.name).to eq("Kamala Harris")
+    end
+
+    it "can return nil if person cannot be found" do
+        records = Records.new()
+        records.create_politician("Kamala Harris", "Democrat")
+        person = records.find_person_by_name("Kamala Spongebob")
+        expect(person).to eq(nil)
+    end
+    
+    it "can delete a voter" do
+        records = Records.new()
+        records.create_voter("Lydia Mansfield", "Liberal")
+        person = records.find_person_by_name("Lydia Mansfield")
+        records.delete_person(person)
+        expect(records.voters.count).to be(0)
+    end
+    
+     it "can delete a politician" do
+        records = Records.new()
+        records.create_politician("Kamala Harris", "Democrat")
+        person = records.find_person_by_name("Kamala Harris")
+        records.delete_person(person)
+        expect(records.politicians.count).to be(0)
+    end
+end
+
 #     it "can delete a voter"
 #     it "can delete a politician"
     

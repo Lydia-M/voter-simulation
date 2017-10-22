@@ -40,8 +40,21 @@ class Records
         return records
     end
     
-    
-    
+    def find_person_by_name(name)
+        person = @voters.detect{ |voter| voter.name.eql?(name) }
+        if person == nil
+            person = @politicians.detect{ |voter| voter.name.eql?(name) }
+        end
+        return person
+    end
+        
+    def delete_person(person)
+        if person.is_a?(Voter)
+            @voters.delete(person)
+        else
+            @politicians.delete(person)
+        end
+    end
 end
 
 ##MAIN MENU
