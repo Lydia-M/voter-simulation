@@ -33,12 +33,8 @@ describe Records do
         politician_list = records.list_politicians()
         expect(politician_list).to eq("politician, Gwen Graham, Democrat\n")
     end
-end
 
-        
-        
-        
-#     it "can update a voter"
+    it "can update a voter"
 #     it "can update a politician"
 #     it "can delete a voter"
 #     it "can delete a politician"

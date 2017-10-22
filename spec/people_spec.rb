@@ -11,5 +11,12 @@ describe Person do
     it "can report its name" do
         person = Person.new("Lydia Mansfield")
         expect(person.name).to eq("Lydia Mansfield")
-    end   
+    end
+    
+    it "can update name" do
+        person = Person.new("Lydia Mansfield")
+        person.update_name("Lydia MacDonald")
+        expect(person.name).to eq("Lydia MacDonald")
+    end
+    
 end

@@ -40,6 +40,8 @@ class Records
         return records
     end
     
+    
+    
 end
 
 ##MAIN MENU
