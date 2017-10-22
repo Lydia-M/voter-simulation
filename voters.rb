@@ -1,4 +1,4 @@
-require './person.rb'
+require './people.rb'
 
 class Voter < Person
     attr_reader :pol_aff
