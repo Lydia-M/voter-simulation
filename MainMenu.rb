@@ -67,7 +67,27 @@ begin
             puts records.list_politicians()
 
         when "U"
-            puts "update"
+            puts "(Firstname Lastname) of person to update?"
+            update_name = gets.chomp
+            person_update = records.find_person_by_name(update_name)
+            if person_update == nil
+                puts "#{update_name} not found in directory."
+            else
+                puts "Updated name (Firstname Lastname)?"
+                new_name = gets.chomp
+                person_update.update_name(new_name)
+                if person_update.is_a?(Voter)
+                    puts "Updated political affiliation: (L)iberal, (C)onservative, (T)ea Party, (S)ocialist, or (N)eutral?"
+                    new_pol_aff = gets.chomp
+                    person_update.update_pol_aff(["Liberal", "Conservative", "Tea Party", "Socialist", "Neutral"].detect{ |pol_aff| pol_aff.start_with?(new_pol_aff)})
+                else
+                    puts "Updated party affiliation: (D)emocrat, (R)epublican?"
+                    new_pol_aff = gets.chomp
+                    person_update.update_party_aff(["Democrat", "Republican"].detect{ |pol_aff| pol_aff.start_with?(new_pol_aff)})                    
+                end
+                
+            end
+                
 
         when "D"
             puts "(Firstname Lastname) of entry for deletion?"
