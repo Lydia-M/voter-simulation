@@ -70,7 +70,15 @@ begin
             puts "update"
 
         when "D"
-            puts "delete"
+            puts "(Firstname Lastname) of entry for deletion?"
+            delete_name = gets.chomp
+            person_delete = records.find_person_by_name(delete_name)
+            if person_delete == nil
+                puts "#{delete_name} not found in directory."
+            else
+                records.delete_person(person_delete)
+                puts "#{delete_name} successfully deleted from directory."
+            end
 
         else
             puts "invalid selection"
